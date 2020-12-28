@@ -75,6 +75,47 @@ David W. Aha (
 https://www.kaggle.com/ronitf/heart-disease-uci
 
 
+<h2> Tasks </h2>
+
+The tasks included :
+
+- Visualization of the data
+- Background Analysis
+- Creation of Machine Learning Model (goal was to have >85% accuracy)
+
+
+<h2> Evaluation </h2>
+
+For the evaluation we used different metrics, such as :
+
+- Accuracy
+
+
+- Balanced Accuracy 
+
+
+
+- f1 Score
+
+
+
+- Sensitivity 
+
+
+
+- Specificity
+
+
+
+
+- ROC Curves & AUC Score
+
+
+
+
+
+
+
 <html>
 <head>
 
@@ -82,6 +123,8 @@ https://www.kaggle.com/ronitf/heart-disease-uci
 <body>
 
 <h2>Machine Learning Models Results</h2>
+
+The results of the ML models, can be seen in the detailed table below.
 
 <table>
   <tr>
@@ -128,3 +171,5 @@ https://www.kaggle.com/ronitf/heart-disease-uci
 
 </body>
 </html>
+
+Logistic Regression was by far the most precise model with an accuracy of 93.3% and f1 score of 93.87%.
