@@ -1,17 +1,16 @@
-"""AdaBoost Model
+"""Gradient Boosting Model
 
-https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html
+https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html
 
+Gradient Boosting for classification.
 
-An AdaBoost classifier is a meta-estimator that begins by fitting a classifier on the original dataset &
- then fits additional copies of the classifier on the same dataset but where the weights of incorrectly
- classified instances are adjusted such that subsequent classifiers focus more on difficult cases.
+GB builds an additive model in a forward stage-wise fashion; it allows for the optimization of arbitrary differentiable loss functions.
+In each stage n_classes_ regression trees are fit on the negative gradient of the binomial or multinomial deviance loss function.
 
-This class implements the algorithm known as AdaBoost-SAMME
-
+Binary classification is a special case where only a single regression tree is induced.
 """
 
-from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 import sklearn.metrics
 from sklearn import metrics
 from sklearn.metrics import f1_score, log_loss, accuracy_score
@@ -24,7 +23,7 @@ from sklearn.model_selection import train_test_split #for data splitting
 
 X_train, X_test, y_train, y_test = train_test_split(dt.drop('target', 1), dt['target'], test_size = .3, random_state=5) #split the data
 
-model = AdaBoostClassifier()
+model = GradientBoostingClassifier()
 model.fit(X_train, y_train) #fit
 
 y_predict = model.predict(X_test)
@@ -39,10 +38,9 @@ print("Testing Data Shape:", y_test.shape)
 
 #Confusion Matrix
 cm = confusion_matrix(y_test, y_pred_bin)
-plt.title("AdaBoost Confusion Matrix")
+plt.title("Gradient Boosting Confusion Matrix")
 sns.heatmap(cm,annot=True,cmap="Blues",fmt="d",cbar=False, annot_kws={"size": 24})
 plt.show
-
 
 #Printing results
 total=sum(sum(cm))

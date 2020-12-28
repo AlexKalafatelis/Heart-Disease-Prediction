@@ -1,17 +1,23 @@
-"""AdaBoost Model
+"""Logistic Regression Model
 
-https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html
+https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html
 
+Logistic regression is a statistical model that in its basic form uses a logistic function to model a binary dependent variable,
+ although many more complex extensions exist.
 
-An AdaBoost classifier is a meta-estimator that begins by fitting a classifier on the original dataset &
- then fits additional copies of the classifier on the same dataset but where the weights of incorrectly
- classified instances are adjusted such that subsequent classifiers focus more on difficult cases.
+In a binary logistic regression model, the dependent variable has two levels (categorical).
+  Outputs with more than two values are modeled by multinomial logistic regression and, if the multiple categories are ordered,
+  by ordinal logistic regression (for example the proportional odds ordinal logistic model).
 
-This class implements the algorithm known as AdaBoost-SAMME
+The logistic regression model itself simply models probability of output in terms of input and does not perform
+  statistical classification (it is not a classifier), though it can be used to make a classifier,
+  for instance by choosing a cutoff value and classifying inputs with probability greater than the cutoff as one class,
+  below the cutoff as the other; this is a common way to make a binary classifier.
 
+    via wikipedia (https://en.wikipedia.org/wiki/Logistic_regression)
 """
 
-from sklearn.ensemble import AdaBoostClassifier
+from sklearn.linear_model import LogisticRegression
 import sklearn.metrics
 from sklearn import metrics
 from sklearn.metrics import f1_score, log_loss, accuracy_score
@@ -24,12 +30,13 @@ from sklearn.model_selection import train_test_split #for data splitting
 
 X_train, X_test, y_train, y_test = train_test_split(dt.drop('target', 1), dt['target'], test_size = .3, random_state=5) #split the data
 
-model = AdaBoostClassifier()
+model = LogisticRegression()
 model.fit(X_train, y_train) #fit
 
 y_predict = model.predict(X_test)
 y_pred_quant = model.predict_proba(X_test)[:, 1]
 y_pred_bin = model.predict(X_test)
+
 
 print("Training Data Shape:", X_train.shape)
 print("Testing Data Shape:", X_test.shape)
@@ -39,7 +46,7 @@ print("Testing Data Shape:", y_test.shape)
 
 #Confusion Matrix
 cm = confusion_matrix(y_test, y_pred_bin)
-plt.title("AdaBoost Confusion Matrix")
+plt.title("Logistic Regression Confusion Matrix")
 sns.heatmap(cm,annot=True,cmap="Blues",fmt="d",cbar=False, annot_kws={"size": 24})
 plt.show
 
