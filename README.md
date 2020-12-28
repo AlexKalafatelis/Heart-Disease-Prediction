@@ -172,4 +172,4 @@ The results of the ML models, can be seen in the detailed table below.
 </body>
 </html>
 
-Logistic Regression was by far the most precise model with an accuracy of 93.3% and f1 score of 93.87%.
+Logistic Regression was by far the best model of the 3, with an accuracy of 93.3% and f1 score of 93.87%.
