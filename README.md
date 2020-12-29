@@ -147,7 +147,7 @@ The results of the ML models, can be seen in the detailed table below.
 
   </tr>
   <tr>
-    <td>Gradient Boost</td>
+    <td>Gradient Boosting</td>
     <td>0.8460</td>
     <td>0.8481</td>
     <td>0.8478</td>
