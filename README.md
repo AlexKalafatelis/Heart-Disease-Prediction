@@ -79,9 +79,9 @@ https://www.kaggle.com/ronitf/heart-disease-uci
 
 The tasks included :
 
-- Visualization of the data
+- Visualization of the Data
 - Background Analysis
-- Creation of Machine Learning Model (goal was to have >85% accuracy)
+- Creation of Machine Learning Models (goal was to have >85% accuracy)
 
 
 <h2> Evaluation </h2>
